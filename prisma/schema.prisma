@@ -1,0 +1,31 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  password  String
+  role      String   @default("VIEWER")
+  status    String   @default("ACTIVE")
+  records   Record[]
+  createdAt DateTime @default(now())
+}
+
+model Record {
+  id        Int      @id @default(autoincrement())
+  amount    Float
+  type      String
+  category  String
+  date      DateTime
+  notes     String?
+  userId    Int
+  user      User     @relation(fields: [userId], references: [id])
+  createdAt DateTime @default(now())
+}
