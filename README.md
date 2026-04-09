@@ -195,12 +195,6 @@ Future Improvements
 - Testing
 
 ---
- Submission Links
-
-- GitHub Repo: <YOUR_GITHUB_LINK>
-- API Docs (Postman): <YOUR_POSTMAN_LINK>
-
----
 
 Author
 
